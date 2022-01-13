@@ -30,7 +30,7 @@ function onImageClick(event) {
     
     let gallery = new SimpleLightbox('.gallery a');
 gallery.on('show.simplelightbox', function () {
-    captionsData: `img`; captionDelay: `250`;
+    captionsData: `img`; captionDelay: `250`; 
 });
 
 };
