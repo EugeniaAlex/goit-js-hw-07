@@ -5,6 +5,8 @@ console.log(galleryItems);
 
 const divGaleryEl = document.querySelector('.gallery');
 
+let instance;
+
 function makeGaleryElementMarkup(item) {
     
     return `
@@ -21,7 +23,7 @@ function makeGaleryElementMarkup(item) {
 };
 
 const makeGaleryElements = galleryItems.map(makeGaleryElementMarkup).join('');
-let instance;
+
 divGaleryEl.insertAdjacentHTML('beforeend', makeGaleryElements);
 
 divGaleryEl.addEventListener('click', onImageClick);
@@ -30,9 +32,6 @@ function onImageClick(event) {
     window.addEventListener('keydown', onEscapeClose);
     event.preventDefault();
     
-    // if (event.target.nodeName !== IMG) {
-    //     return;
-    // }
     instance = basicLightbox.create(`
     <img src="${event.target.dataset.source}">
 `)
@@ -40,7 +39,6 @@ function onImageClick(event) {
 instance.show();
 };
 
-// window.addEventListener('keydown', onEscapeClose);
 
 function onEscapeClose(event) {
     
